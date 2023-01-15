@@ -1,11 +1,11 @@
 package MenuApps.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Getter
 @Setter
@@ -22,5 +22,9 @@ public class Menu {
     @Column(name ="price")
     private BigDecimal price;
 
+    @OneToOne
+    @JoinColumn(name="category_id")
+    @JsonIgnore
+    private Category category;
 
 }

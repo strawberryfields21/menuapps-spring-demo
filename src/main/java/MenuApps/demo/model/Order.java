@@ -20,7 +20,8 @@ public class Order {
     private LocalDateTime order_date;
     @Column(name ="total")
     private BigDecimal total;
-    @OneToMany
-    @JoinColumn
-    private List<Menu> menus;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetail> order_detail;
+
 }

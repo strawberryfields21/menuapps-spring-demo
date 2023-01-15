@@ -3,7 +3,10 @@ package MenuApps.demo.controller;
 import MenuApps.demo.dto.CategoryDTO;
 import MenuApps.demo.model.Category;
 import MenuApps.demo.service.CategoryService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +33,7 @@ public class CategoryController {
     public List<CategoryDTO> findAll(){
         return categoryService.findAll().stream().map(category -> categoryService.mapToDTO(category))
                 .collect(Collectors.toList());
+
     }
     @DeleteMapping("/delete/{id}")
     public Boolean delete(@PathVariable Long id){

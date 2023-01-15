@@ -19,7 +19,6 @@ public class Category {
     @Column(name ="description")
     private String description;
 
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name = "menu_id")
+    @OneToMany(mappedBy = "category")
     private List<Menu> menus;
 }
